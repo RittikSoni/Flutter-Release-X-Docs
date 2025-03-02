@@ -4,9 +4,18 @@ title: Configuration
 sidebar_position: 4
 ---
 
-Create a `config.yaml` file in the root directory of your project to specify your upload options and QR code generation settings:
+To configure **Flutter Release X**, create a `config.yaml` file in the root directory of your project. This file defines **how builds are processed, uploaded, and shared**.
 
-## Default Config file Sample
+### 🔹 **Configuration Options**
+
+You have **two ways** to configure Flutter Release X:
+
+## **1️. Default Configuration (Quick & Easy 🚀)**
+
+- **Ideal for most users** who want an **automated build & upload process** without extra setup.
+- Supports **.apk builds**, QR code generation, and cloud uploads (GitHub, Google Drive, Slack).
+
+### Default Config file Sample
 
 ```yaml
 # Path to Flutter binary
@@ -45,7 +54,13 @@ qr_code:
   save_path: "./release-qr-code.png" # File path to save the QR code image
 ```
 
-## Advance Pipeline Config file Sample
+## **2. Advanced Pipeline (Full Customization 🔥)**
+
+- For users who need complete control over build steps, dependencies, and automation.
+- Supports custom commands, multiple platforms (iOS, Web, Desktop), and external scripts.
+- Overrides default configuration when enabled.
+
+### Advance Pipeline Config file Sample
 
 ```yaml
 upload_options:
@@ -123,7 +138,21 @@ pipeline_steps:
 # to avoid unwanted interruptions in the pipeline flow.
 ```
 
-## Flutter Path
+## 📌 Which One Should You Choose?
+
+| Feature              | Default Configuration | Advanced Pipeline         |
+| -------------------- | --------------------- | ------------------------- |
+| **Ease of Use**      | ✅ Simple setup       | ⚡ Requires custom steps  |
+| **Custom Commands**  | ❌ Not supported      | ✅ Fully customizable     |
+| **Multi-Platform**   | 🚀 Android only       | 🌍 Any platform           |
+| **External Scripts** | ❌ No                 | ✅ Yes                    |
+| **Error Handling**   | 🔧 Standard logs      | ⚠️ Custom exit conditions |
+
+:::tip 💡 **Tip:**
+If you're just getting started, go with **Default Configuration**. If you need full flexibility, switch to **Advanced Pipeline**.
+:::
+
+## `Flutter Path`
 
 | Key            | Description                | Example                                                                                                |
 | -------------- | -------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -133,7 +162,7 @@ pipeline_steps:
 
 ## Upload Options
 
-### GitHub
+### `GitHub`
 
 | Key       | Description                        | Required | Example                         |
 | --------- | ---------------------------------- | -------- | ------------------------------- |
@@ -142,7 +171,7 @@ pipeline_steps:
 | `repo`    | GitHub repository path             | Yes      | `RittikSoni/Flutter-Release-X`  |
 | `tag`     | Release tag (e.g., version number) | No       | `v0.0.1` (Defaults to `v0.0.1`) |
 
-### Google Drive
+### `Google Drive`
 
 | Key             | Description                | Required | Example              |
 | --------------- | -------------------------- | -------- | -------------------- |
@@ -150,7 +179,7 @@ pipeline_steps:
 | `client_id`     | Google API Client ID       | Yes      | `YOUR_CLIENT_ID`     |
 | `client_secret` | Google API Client Secret   | Yes      | `YOUR_CLIENT_SECRET` |
 
-### Slack
+### `Slack`
 
 | Key                    | Description                                   | Required | Example                                                   |
 | ---------------------- | --------------------------------------------- | -------- | --------------------------------------------------------- |
@@ -164,7 +193,7 @@ pipeline_steps:
 
 ---
 
-## QR Code Generation Settings
+## `QR Code Generation Settings`
 
 | Key                      | Description                                          | Default                 | Example                                      |
 | ------------------------ | ---------------------------------------------------- | ----------------------- | -------------------------------------------- |
@@ -175,7 +204,7 @@ pipeline_steps:
 | `error_correction_level` | Error correction level for the QR code               | `low`                   | `low` (Options: low, medium, quartile, high) |
 | `save_path`              | File path to save the QR code image                  | `./release-qr-code.png` | `./release-qr-code.png`                      |
 
-## Advance Pipeline
+## `Advance Pipeline`
 
 | Field                     | Description                                                                                                                                                                                  | Example Value                                                                          | Required | Default Value |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------- | ------------- |

@@ -116,10 +116,8 @@ const config: Config = {
       style: "dark",
       logo: {
         alt: "Flutter Release X Open Source Logo",
-        src: "img/logo.png",
+        src: "img/frx_open_source.png",
         href: `${frxPackageLink}`,
-        height: 200,
-        width: 200,
       },
       links: [
         {
