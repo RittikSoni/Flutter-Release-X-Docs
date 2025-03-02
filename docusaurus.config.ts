@@ -83,7 +83,7 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
-        { to: "/docs/feedback", label: "Feedback", position: "right" },
+        { to: "/docs/community", label: "Community", position: "right" },
         { to: "docs/", label: "Docs", position: "left" },
         {
           type: "docsVersion",
@@ -158,7 +158,7 @@ const config: Config = {
               href: `${frxPackageLink}`,
             },
             { label: "License", to: "/docs/license" },
-            { label: "Feedback", to: "/docs/feedback" },
+            { label: "Community", to: "/docs/community" },
           ],
         },
       ],
