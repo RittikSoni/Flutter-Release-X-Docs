@@ -12,11 +12,27 @@ Below are the most common questions about **Flutter Release X**.
 
 ### **How does Flutter Release X work?**
 
-Flutter Release X automates your **Flutter app release process**, handling builds, uploads, and sharing with just one command.
+Flutter Release X automates your **app release process**, handling builds, uploads, and sharing with just one command.
 
 ### **Can I use Flutter Release X for non-Flutter projects?**
 
 Yes! **Only the Advanced Pipeline feature** is supported for **non-Flutter projects** like React, Node.js, or other technologies.
+
+### **Is FRX completely free to use?**
+
+Yes! FRX is 100% free and open-source, unlike traditional CI/CD platforms that charge for build minutes.
+
+### **What build targets are supported?**
+
+By default, FRX supports Android (.apk & .aab), but with the Advanced Pipeline, you can extend support to iOS, Web, Windows, Linux, and Mac.
+
+### **How do I trigger a build?**
+
+Once configured, simply run:
+
+```bash
+frx build
+```
 
 ---
 
@@ -44,17 +60,7 @@ Possible reasons:
 
 ### **How to enable GitHub uploads?**
 
-1. **Generate a GitHub Token** from [GitHub Settings](https://github.com/settings/tokens).
-2. Add it to your `config.yaml`:
-
-   ```yaml
-   upload_options:
-     github:
-       enabled: true
-       token: YOUR_GITHUB_TOKEN
-   ```
-
-3. Run `frx build` to upload automatically.
+Follow [Cloud Integration](cloud-integration) to set up GitHub releases.
 
 ### **Can I upload builds to Google Drive?**
 
@@ -95,6 +101,18 @@ upload_options:
 
 ## ⚙️ **Customization & Advanced Features**
 
+### **Can I add custom commands or scripts?**
+
+Yes! The Advanced Pipeline feature allows you to define custom steps like flutter test, node --version, or even external scripts.
+
+### **How does FRX handle errors in the pipeline?**
+
+By default, FRX stops on failure. However, you can define custom exit conditions:
+
+```yaml
+customExitCondition: "error: specific error message"
+```
+
 ### **How do I use a custom configuration file?**
 
 Run:
@@ -103,11 +121,15 @@ Run:
 frx build -c path/to/custom_config.yaml
 ```
 
-**🔹 Note:** This persists for future builds.
+:::info
+This persists for future builds.
+:::
 
 ### **How do I create an Advanced Pipeline?**
 
 Define your pipeline in `config.yaml`:
+
+example:
 
 ```yaml
 pipeline_steps:
@@ -127,4 +149,7 @@ If you didn’t find an answer here, feel free to:
 
 - Open an **issue** on [GitHub](https://github.com/RittikSoni/Flutter-Release-X/issues).
 - Join the **community discussions**.
-- Contact us via **Email or GitHub Discussions**.
+- Contact us via **Email or GitHub Discussions or Discord**.
+
+🔥 Star us on GitHub if you like FRX! ⭐ → [GitHub Repo](https://github.com/RittikSoni/Flutter-Release-X)
+Happy Building! 🚀

@@ -83,6 +83,7 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
+        { to: "/docs/feedback", label: "Feedback", position: "right" },
         { to: "docs/", label: "Docs", position: "left" },
         {
           type: "docsVersion",
@@ -117,6 +118,8 @@ const config: Config = {
         alt: "Flutter Release X Open Source Logo",
         src: "img/logo.png",
         href: `${frxPackageLink}`,
+        height: 200,
+        width: 200,
       },
       links: [
         {
@@ -147,6 +150,7 @@ const config: Config = {
               href: `${krYouTubeLink}`,
             },
             { label: "Medium Blog", href: mediumKingRittikLink },
+            { label: "Feedback", to: "/docs/feedback" },
           ],
         },
         {

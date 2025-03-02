@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Create a `config.yaml` file in the root directory of your project to specify your upload options and QR code generation settings:
 
-## Default Config file
+## Default Config file Sample
 
 ```yaml
 # Path to Flutter binary
@@ -45,7 +45,7 @@ qr_code:
   save_path: "./release-qr-code.png" # File path to save the QR code image
 ```
 
-## Advance Pipeline Config file
+## Advance Pipeline Config file Sample
 
 ```yaml
 upload_options:

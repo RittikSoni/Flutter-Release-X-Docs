@@ -63,6 +63,18 @@ If you want to mention specific users in the Slack message, you will need their 
 - Click on three dots and Copy Member Id (e.g., `UXXXXXXXX`) is the user's **User ID**.
 - Repeat this for each user you want to mention and collect their **User IDs**.
 
----
+### 7. **Set Up Your Project**
 
 Now, you can use the `YOUR_BOT_TOKEN`, `CHANNEL_ID`, and `member_ids` in your configuration to automate Slack file uploads and download link sending.
+
+````yaml
+  slack:
+    enabled: true
+    bot_user_oauth_token: YOUR_BOT_TOKEN # Required: Slack Bot OAuth Token, e.g., xoxb-XXXXXXXXX-XXXXXXXXX-XXXXXXXXXXXXX
+    default_channel_id: CHANNEL_ID # Required: Slack channel ID, e.g., CXXXXXXXXX
+    share_QR: true # Optional: Share QR code in Slack (default: true)
+    share_link: true # Optional: Share build download link in Slack (default: true)
+    custom_message: "🚀 Check out the latest build! Download your app now!" # Custom message to accompany the link
+    mention_users: ["U0XXXXXXX", "U08XXXXXXXX"]
+    ```
+````

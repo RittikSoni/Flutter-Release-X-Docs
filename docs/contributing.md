@@ -10,4 +10,4 @@ sidebar_position: 10
 2. **Clone and create a new branch**.
 3. **Make changes and submit a PR**.
 
-✨ **Star the repo on GitHub** to support development!
+✨ **Star the repo on [GitHub](https://github.com/RittikSoni/Flutter-Release-X)** to support development!
