@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Advanced Pipeline Cookbook
@@ -64,8 +64,8 @@ pipeline:
   - name: "Build React App"
     run: "npm run build"
 
-    - name: "Deploy to Server"
-      run: "scp -r build/ user@server:/var/www/html"
+  - name: "Deploy to Server"
+    run: "scp -r build/ user@server:/var/www/html"
 ```
 
 ### **3.2 Automate Git Operations**

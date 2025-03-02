@@ -135,10 +135,6 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "GitHub",
-              href: `${frxGithubLink}`,
-            },
-            {
               label: "Discord",
               href: `${discordServerLink}`,
             },
@@ -148,17 +144,21 @@ const config: Config = {
               href: `${krYouTubeLink}`,
             },
             { label: "Medium Blog", href: mediumKingRittikLink },
-            { label: "Feedback", to: "/docs/feedback" },
           ],
         },
         {
           title: "More",
           items: [
             {
+              label: "GitHub",
+              href: `${frxGithubLink}`,
+            },
+            {
               label: "Pub.dev",
               href: `${frxPackageLink}`,
             },
             { label: "License", to: "/docs/license" },
+            { label: "Feedback", to: "/docs/feedback" },
           ],
         },
       ],

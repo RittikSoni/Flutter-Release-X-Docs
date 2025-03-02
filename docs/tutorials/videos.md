@@ -16,7 +16,7 @@ Learn how to set up, configure, and use **FRX** for automating Flutter app relea
 
 <iframe
   width="100%"
-  height="315"
+  height="515"
   src="https://www.youtube.com/embed/8WuSyGD3Smg?si=ibiQ05ANyZn-5hQ_"
   title="Flutter Release X Tutorial"
   frameborder="0"
@@ -32,9 +32,9 @@ Learn how to set up, configure, and use **FRX** for automating Flutter app relea
 
 Before using **FRX**, make sure your **Flutter environment** is properly installed and configured.
 
-<iframe 
+<iframe
   width="100%"
-  height="315"
+  height="515"
   src="https://www.youtube.com/embed/ASzu_JzcA34?si=v5xL-z8a_TAckNsW"
   title="Flutter Setup Guide"
   frameborder="0"
