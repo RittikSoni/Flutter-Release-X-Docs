@@ -1,10 +1,8 @@
 ---
-id: videos
-title: Video Tutorials 🎬
-sidebar_position: 12
+id: frx-setup
+title: FRX Setup
+sidebar_position: 1
 ---
-
-## 📺 Video Tutorials
 
 Watch these step-by-step guides to get started with **Flutter Release X** and ensure your Flutter setup is correct.
 
@@ -28,28 +26,9 @@ Learn how to set up, configure, and use **FRX** for automating Flutter app relea
 
 ---
 
-### 🛠 **Flutter Setup Guide**
+## 🔥 Check out More
 
-Before using **FRX**, make sure your **Flutter environment** is properly installed and configured.
-
-<iframe
-  width="100%"
-  height="515"
-  src="https://www.youtube.com/embed/ASzu_JzcA34?si=v5xL-z8a_TAckNsW"
-  title="Flutter Setup Guide"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  className="shadow-md shadow-red-500 rounded-md"
-allowfullscreen
-
-> </iframe>
-
----
-
-## 🔥 More Coming Soon!
-
-We’ll be adding more **video tutorials** soon! Stay tuned. 🎥
+YouTube: [King Rittik](https://www.youtube.com/@king_rittik?sub_confirmation=1)
 
 Have a request for a specific tutorial? [Let us know!](https://forms.gle/M6d1DEik94MMeMJY8)
 
