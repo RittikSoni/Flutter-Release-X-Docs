@@ -177,5 +177,3 @@ pipeline:
 ## 🚀 Conclusion
 
 This **Advanced Pipeline Cookbook** helps **automate workflows** for **Flutter, Web, Backend, Mobile, DevOps, and more** without extra CI/CD costs!
-
-🔗 **Next:** Explore more configurations in [Pipeline Configuration](/docs/pipeline-config)

@@ -4,7 +4,6 @@ import { themes as prismThemes } from "prism-react-renderer";
 const currentYear = new Date().getFullYear();
 const discordServerLink = "https://discord.gg/Tmn6BKwSnr";
 const frxPackageLink = "https://pub.dev/packages/flutter_release_x";
-const krYouTubeLink = "https://www.youtube.com/@king_rittik?sub_confirmation=1";
 const frxGithubLink = "https://github.com/RittikSoni/Flutter-Release-X";
 const instaKingRittikLink = "https://instagram.com/kingrittikofficial";
 const mediumKingRittikLink = "https://medium.com/@kingrittik";
@@ -19,7 +18,7 @@ const config: Config = {
     // ✅ Improved Announcement Bar for Better Engagement
     announcementBar: {
       id: "subscribe",
-      content: `🚀 New updates! Subscribe to <b><a target="_blank" rel="noopener noreferrer" href=${krYouTubeLink} style="color: yellow;">YouTube</a></b> for the latest features.`,
+      content: `🚀 New updates! Subscribe to <b><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@king_rittik?sub_confirmation=1" style="color: yellow;">YouTube</a></b> for the latest features.`,
       backgroundColor: "#FF0000",
       textColor: "#FFFFFF",
       isCloseable: true,
@@ -151,7 +150,7 @@ const config: Config = {
             { label: "Instagram", href: instaKingRittikLink },
             {
               label: "YouTube",
-              href: `${krYouTubeLink}`,
+              href: "https://www.youtube.com/@king_rittik?sub_confirmation=1",
             },
             { label: "Medium Blog", href: mediumKingRittikLink },
           ],
@@ -186,7 +185,9 @@ const config: Config = {
       "classic",
       {
         docs: { sidebarPath: require.resolve("./sidebars.ts") },
-        theme: { customCss: require.resolve("./src/css/custom.css") },
+        theme: {
+          customCss: require.resolve("./src/css/custom.css"),
+        },
       },
     ],
   ],
