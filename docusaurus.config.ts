@@ -47,6 +47,7 @@ const config: Config = {
         content:
           "Flutter Release X - Simplify your Flutter app release process with automation, pipelines, and CI/CD integration.",
       },
+      { name: "author", content: "Rittik Soni" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Rittik__Soni" },
       { name: "twitter:title", content: "Flutter Release X" },
@@ -82,13 +83,26 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
+        // LEFT SIDE OF NAV BAR
         { to: "docs/", label: "Docs", position: "left" },
         { to: "/docs/community", label: "Community", position: "left" },
+
+        // RIGHT SIDE OF NAVBAR
         {
           type: "docsVersion",
           position: "right",
           to: `${frxPackageLink}`,
           label: "v0.2.0",
+        },
+        {
+          href: "https://github.com/RittikSoni",
+          label: "Author",
+          position: "right",
+        },
+        {
+          href: "https://github.com/sponsors/RittikSoni",
+          html: `<img src="img/github-sponsor-rittik-soni.svg" height="30" width="30" alt="Sponsor"/>`,
+          position: "right",
         },
 
         {
@@ -171,7 +185,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${currentYear} Flutter Release X.`,
+      copyright: `Copyright © ${currentYear} Flutter Release X. Built with ❤️ by <a href="https://github.com/RittikSoni" target="_blank" rel="noopener noreferrer">@RittikSoni</a>`,
     },
   },
 

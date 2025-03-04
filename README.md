@@ -1,41 +1,45 @@
-# Website
+# 🚀 Flutter Release X (FRX)
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+[![Flutter Release X (frx docs)](static/img/frx_gif_banner.gif?raw=true "FRX")](https://frx.elpisverse.com)
 
-### Installation
+---
 
-```
-$ yarn
-```
+**Automate your Flutter or Non-Flutter app releases with ease!**  
+FRX simplifies the process of **building, sharing, and deploying** Apps with a **powerful yet flexible pipeline**.
 
-### Local Development
+[Official Documentation](https://frx.elpisverse.com)
 
-```
-$ yarn start
-```
+---
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## 🛠️ Contributing
 
-### Build
+Want to improve FRX? **Join us!** 🚀
 
-```
-$ yarn build
-```
+1. **Fork the repo** & create a new branch
+2. **Make your changes**
+3. **Submit a PR**
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+👉 **[GitHub Repository](https://github.com/RittikSoni/Flutter-Release-X)**
 
-### Deployment
+---
 
-Using SSH:
+## 📢 Community & Support
 
-```
-$ USE_SSH=true yarn deploy
-```
+Join the **Flutter Release X** community to get updates, share feedback, and ask questions:
 
-Not using SSH:
+- 💬 **[GitHub Discussions](https://github.com/RittikSoni/Flutter-Release-X/discussions)**
+- 🗣️ **[Discord Server](https://discord.gg/Tmn6BKwSnr)**
+- 📸 **[Instagram](https://instagram.com/kingrittikofficial)**
+- 🎥 **[YouTube](https://www.youtube.com/@king_rittik?sub_confirmation=1)**
+- ✍️ **[Medium Blog](https://medium.com/@kingrittik)**
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+---
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## 📝 License
+
+**Flutter Release X** is **open-source** and available under the **MIT License**.  
+📜 **[Read the License](https://github.com/RittikSoni/Flutter-Release-X/blob/main/LICENSE)**
+
+---
+
+🔥 **Built with ❤️ by [@RittikSoni](https://github.com/RittikSoni)**
