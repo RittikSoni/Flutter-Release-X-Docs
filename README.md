@@ -1,17 +1,20 @@
 # 🚀 Flutter Release X (FRX) Documentation
 
-[![Flutter Release X (frx docs)](static/img/frx_gif_banner.gif?raw=true "FRX")](https://frx.elpisverse.com)
+[![Flutter Release X (FRX Docs)](static/img/frx_gif_banner.gif?raw=true "FRX")](https://frx.elpisverse.com)
+
+> **Automate your Flutter or Non-Flutter app releases with ease!**  
+> FRX simplifies the process of **building, sharing, and deploying** apps with a **powerful yet flexible pipeline**.
 
 ---
 
-### - [Official Documentation](https://frx.elpisverse.com)
+## 📖 Documentation & Links
 
-### - [Flutter Release X](https://github.com/RittikSoni/Flutter-Release-X)
+- 📚 **[FRX Documentation](https://frx.elpisverse.com)**
+- 🚀 **[GitHub Repository](https://github.com/RittikSoni/Flutter-Release-X)**
+- 📦 **[FRX on Pub.dev](https://pub.dev/packages/flutter_release_x)**
+- 🔴 **[FRX on YouTube](https://youtu.be/8WuSyGD3Smg?si=_DOKxBANN-rXvggN)**
 
-### - [Pub.dev](https://pub.dev/packages/flutter_release_x)
-
-**Automate your Flutter or Non-Flutter app releases with ease!**  
-FRX simplifies the process of **building, sharing, and deploying** Apps with a **powerful yet flexible pipeline**.
+💙 **Love FRX?** Give it a ⭐ on [GitHub](https://github.com/RittikSoni/Flutter-Release-X) & like 👍 it on [Pub.dev](https://pub.dev/packages/flutter_release_x)!
 
 ---
 
@@ -23,7 +26,7 @@ Want to improve FRX? **Join us!** 🚀
 2. **Make your changes**
 3. **Submit a PR**
 
-👉 **[GitHub Repository](https://github.com/RittikSoni/Flutter-Release-X)**
+🔗 **[Contribute on GitHub](https://github.com/RittikSoni/Flutter-Release-X)**
 
 ---
 
