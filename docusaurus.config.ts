@@ -14,6 +14,13 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.palenight,
     },
+    scripts: [
+      {
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        defer: true,
+        "data-cf-beacon": '{"token": "212933c9ce644875b3a79eeb95159028"}',
+      },
+    ],
 
     // ✅ Improved Announcement Bar for Better Engagement
     announcementBar: {
