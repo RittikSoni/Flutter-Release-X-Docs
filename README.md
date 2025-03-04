@@ -1,13 +1,17 @@
-# 🚀 Flutter Release X (FRX)
+# 🚀 Flutter Release X (FRX) Documentation
 
 [![Flutter Release X (frx docs)](static/img/frx_gif_banner.gif?raw=true "FRX")](https://frx.elpisverse.com)
 
 ---
 
+### - [Official Documentation](https://frx.elpisverse.com)
+
+### - [Flutter Release X](https://github.com/RittikSoni/Flutter-Release-X)
+
+### - [Pub.dev](https://pub.dev/packages/flutter_release_x)
+
 **Automate your Flutter or Non-Flutter app releases with ease!**  
 FRX simplifies the process of **building, sharing, and deploying** Apps with a **powerful yet flexible pipeline**.
-
-[Official Documentation](https://frx.elpisverse.com)
 
 ---
 
