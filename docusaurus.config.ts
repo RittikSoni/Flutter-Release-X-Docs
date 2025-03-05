@@ -99,7 +99,7 @@ const config: Config = {
           type: "docsVersion",
           position: "right",
           to: `${frxPackageLink}`,
-          label: "v0.2.0",
+          label: "v0.2.2",
         },
         {
           href: "https://github.com/RittikSoni",
