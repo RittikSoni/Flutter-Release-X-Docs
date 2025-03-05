@@ -65,10 +65,10 @@ const config: Config = {
       },
       {
         name: "twitter:image",
-        content: "img/logo.png",
+        content: "/img/logo.png",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://elpisverse.com" },
+      { property: "og:url", content: "https://frx.elpisverse.com" },
       { property: "og:title", content: "Flutter Release X" },
       {
         property: "og:description",
@@ -77,7 +77,7 @@ const config: Config = {
       },
       {
         property: "og:image",
-        content: "img/logo.png",
+        content: "/img/logo.png",
       },
     ],
 
