@@ -13,12 +13,12 @@ This guide provides various **automation pipelines** for different tech stacks u
 The Advanced Pipeline allows running **custom commands** like:
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Check Flutter Version"
-    run: "flutter --version"
+    command: "flutter --version"
 
   - name: "Check Git Status"
-    run: "git status"
+    command: "git status"
 ```
 
 ---
@@ -28,17 +28,17 @@ pipeline:
 ### **2.1 Multi-Platform Build & Deployment**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Build for All Platforms"
-    run: "frx build --target ios,android,web,macos,windows,linux"
+    command: "frx build --target ios,android,web,macos,windows,linux"
 ```
 
 ### **2.2 Auto Versioning & Tagging**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Bump Minor Version"
-    run: "frx version bump --type minor"
+    command: "frx version bump --type minor"
 ```
 
 ### **2.3 Advanced Notifications**
@@ -48,9 +48,9 @@ This `frx` feature is Coming Soon!
 :::
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Send Slack Notification"
-    run: "frx notify --platform slack --message '🚀 New Release Available!'"
+    command: "frx notify --platform slack --message '🚀 New Release Available!'"
 ```
 
 ---
@@ -60,28 +60,28 @@ pipeline:
 ### **3.1 Build & Deploy React/Next.js**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Build React App"
-    run: "npm run build"
+    command: "npm run build"
 
   - name: "Deploy to Server"
-    run: "scp -r build/ user@server:/var/www/html"
+    command: "scp -r build/ user@server:/var/www/html"
 ```
 
 ### **3.2 Automate Git Operations**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Auto Commit & Push"
-    run: "git add . && git commit -m 'Auto release' && git push"
+    command: "git add . && git commit -m 'Auto release' && git push"
 ```
 
 ### **3.3 Lint & Format Code**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Run ESLint & Prettier"
-    run: "eslint . --fix && prettier --write ."
+    command: "eslint . --fix && prettier --write ."
 ```
 
 ---
@@ -91,17 +91,17 @@ pipeline:
 ### **4.1 Build & Deploy React Native (Android & iOS)**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Build React Native APK"
-    run: "npx react-native run-android --variant=release"
+    command: "npx react-native run-android --variant=release"
 ```
 
 ### **4.2 Upload to Play Store / App Store**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Upload Android Release to Play Store"
-    run: "fastlane supply --track production --aab app-release.aab"
+    command: "fastlane supply --track production --aab app-release.aab"
 ```
 
 ---
@@ -111,17 +111,17 @@ pipeline:
 ### **5.1 Start, Build & Deploy a Node.js API**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Build & Restart API"
-    run: "npm run build && pm2 restart my-api"
+    command: "npm run build && pm2 restart my-api"
 ```
 
 ### **5.2 Run Tests & Coverage Reports**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Run Jest Tests"
-    run: "jest --coverage"
+    command: "jest --coverage"
 ```
 
 ---
@@ -131,25 +131,25 @@ pipeline:
 ### **6.1 Auto Migrations & Database Sync**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Apply Database Migrations"
-    run: "npx prisma migrate deploy"
+    command: "npx prisma migrate deploy"
 ```
 
 ### **6.2 Automate Docker Builds & Deployments**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Build & Start Docker Container"
-    run: "docker build -t my-app . && docker-compose up -d"
+    command: "docker build -t my-app . && docker-compose up -d"
 ```
 
 ### **6.3 Deploy Apps to AWS, GCP, DigitalOcean, Vercel**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Deploy to Vercel"
-    run: "vercel --prod"
+    command: "vercel --prod"
 ```
 
 ---
@@ -159,17 +159,17 @@ pipeline:
 ### **7.1 Check for Security Vulnerabilities**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Run Security Audit"
-    run: "npm audit --fix"
+    command: "npm audit --fix"
 ```
 
 ### **7.2 Monitor Performance & Logs**
 
 ```yaml
-pipeline:
+pipeline_steps:
   - name: "Check App Logs"
-    run: "pm2 logs my-app"
+    command: "pm2 logs my-app"
 ```
 
 ---

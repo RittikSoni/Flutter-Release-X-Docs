@@ -108,7 +108,7 @@ const config: Config = {
         },
         {
           href: "https://github.com/sponsors/RittikSoni",
-          html: `<img src="img/github-sponsor-rittik-soni.svg" height="30" width="30" alt="Sponsor"/>`,
+          html: `<img src="/img/github-sponsor-rittik-soni.svg" height="30" width="30" alt="Sponsor"/>`,
           position: "right",
         },
 

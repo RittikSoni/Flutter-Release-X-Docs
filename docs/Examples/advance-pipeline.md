@@ -47,13 +47,6 @@ qr_code:
 
 # e.g.,
 pipeline_steps:
-  - name: "Build APK"
-    command: "flutter build apk --release"
-    customExitCondition: "error: some specific error message" # Stop if this error appears in the output
-    upload_output: true # Enable upload for this step
-    output_path: "./build/app/outputs/flutter-apk/app-release.apk" # APK path
-    notify_slack: false # Do not notify Slack after this step
-
   - name: "Run Tests"
     command: "flutter test"
     customExitCondition: "Test failed" # Stop if tests fail
@@ -63,6 +56,13 @@ pipeline_steps:
   - name: "Lint"
     command: "flutter analyze"
     customExitCondition: "issues found" # Stop if issues found
+
+  - name: "Build APK"
+    command: "flutter build apk --release"
+    customExitCondition: "error: some specific error message" # Stop if this error appears in the output
+    upload_output: true # Enable upload for this step
+    output_path: "./build/app/outputs/flutter-apk/app-release.apk" # APK path
+    notify_slack: false # Do not notify Slack after this step
 
   - name: "Package Release"
     command: "node --version"
