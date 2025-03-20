@@ -29,28 +29,28 @@ pipeline_steps:
 
 ```yaml
 pipeline_steps:
-  - name: "Build for All Platforms"
-    command: "frx build --target ios,android,web,macos,windows,linux"
+  - name: "Build for Specific Platforms"
+    command: frx build --target ios,android
 ```
-
-### **2.2 Auto Versioning & Tagging**
 
 ```yaml
 pipeline_steps:
-  - name: "Bump Minor Version"
-    command: "frx version bump --type minor"
+  - name: Build for All Platforms
+    command: frx build -t all # build release for all available platforms.
 ```
 
-### **2.3 Advanced Notifications**
-
-:::info
-This `frx` feature is Coming Soon!
-:::
+### **2.2 Advanced Notifications**
 
 ```yaml
 pipeline_steps:
   - name: "Send Slack Notification"
     command: "frx notify --platform slack --message '🚀 New Release Available!'"
+```
+
+```yaml
+pipeline_steps:
+  - name: "Send Slack Notification with emojis symbol"
+    command: "frx notify -p slack -m ':rocket: New Release Available!'"
 ```
 
 ---

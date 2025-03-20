@@ -13,6 +13,7 @@ sidebar_position: 1
 [![License](https://img.shields.io/github/license/RittikSoni/Flutter-Release-X)](/docs/license)
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/RittikSoni)
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://www.youtube.com/@king_rittik?sub_confirmation=1)
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.gg/Tmn6BKwSnr)
 
 <!-- FRX BANNER -->
 
@@ -43,10 +44,22 @@ className="rounded-lg shadow-xl shadow-teal-500"
   className="shadow-md shadow-red-500 rounded-md"
 ></iframe>
 
-**Flutter Release X** is a powerful command-line tool that transforms your Flutter app release process. Designed for efficiency and ease of use, it allows you to:
+### FRX - Flutter Release X
 
-- **Simplify Your Workflow**: Replace complex CI/CD pipelines with a single command to effortlessly generate and distribute release builds.
-- **Seamless Cloud Integration**: Easily configure cloud platforms like GitHub, Google Drive, AWS, and more by simply providing your API keys and tokens. Once configured, enjoy hassle-free, automatic uploads.
-- **Instant Distribution**: Automatically generate QR codes and download links for your builds, enabling quick and easy distribution to your team or users with no additional effort.
+**Flutter Release X** revolutionizes your app deployment process with a robust and intuitive command-line interface designed for both Flutter and non-Flutter applications. Not only does it simplify deployment, but it also features an **Advanced Pipeline** that enables you to run custom workflows—much like traditional CI/CD pipelines. Best of all, it's **free, open-source, and fully secure**, providing an accessible alternative to other complex and expensive solutions.
 
-With **Flutter Release X**, streamline your release process, enhance collaboration, and reduce time-to-market—all while focusing on what truly matters: building amazing apps.
+Key benefits include:
+
+- **Simplified Deployment:** Replace complicated CI/CD configurations with a single command that automates your build, upload, and distribution processes.
+- **Advanced Pipeline:** Leverage custom workflows to tailor your deployment strategy, similar to standard CI/CD pipelines.
+- **Seamless Cloud Integration:** Easily connect with cloud platforms like GitHub, Google Drive, AWS, and more by simply configuring your API keys and tokens.
+- **Instant Distribution:** Automatically generate QR codes and download links to share your builds quickly and effortlessly.
+- **Free & Open-Source:** Enjoy a cost-effective, community-driven solution with robust security measures in place.
+
+With **Flutter Release X**, accelerate your release cycle, improve collaboration, and reduce time-to-market—all while focusing on what truly matters: building amazing apps.
+
+:::info **We Want to Hear From You:**  
+Got ideas, feedback, or feature requests? Share your thoughts and help shape the future of Flutter Release X by submitting your feedback [here](https://forms.gle/M6d1DEik94MMeMJY8).
+:::
+
+---

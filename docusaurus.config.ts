@@ -24,11 +24,12 @@ const config: Config = {
 
     // ✅ Improved Announcement Bar for Better Engagement
     announcementBar: {
-      id: "subscribe",
+      id: "subscribe2",
       content: `🚀 New updates! Subscribe to <b><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@king_rittik?sub_confirmation=1" style="color: yellow;">YouTube</a></b> for the latest features.`,
-      backgroundColor: "#FF0000",
+      backgroundColor: "#3F9DB5",
+      // backgroundColor: "#FF0000",
       textColor: "#FFFFFF",
-      isCloseable: true,
+      isCloseable: false,
     },
 
     docs: {
@@ -99,7 +100,7 @@ const config: Config = {
           type: "docsVersion",
           position: "right",
           to: `${frxPackageLink}`,
-          label: "v0.2.2",
+          label: "v0.3.1",
         },
         {
           href: "https://github.com/RittikSoni",

@@ -212,12 +212,12 @@ export default function Home(): React.ReactElement {
             {
               title: "🚀 Fast & Automated",
               description:
-                "One command to build, upload, and share your Flutter app.",
+                "One command to build, upload, and share your Flutter, or non-Flutter apps.",
             },
             {
               title: "☁️ Cloud Integration",
               description:
-                "Seamlessly upload releases to GitHub, Google Drive & Slack.",
+                "Seamlessly upload releases to GitHub, Google Drive, AWS, Slack & more.",
             },
             {
               title: "📦 CI/CD Pipelines",
