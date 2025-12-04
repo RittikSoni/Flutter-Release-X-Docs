@@ -37,3 +37,19 @@ dart pub global activate flutter_release_x
 By installing it globally, you can run `frx` commands from anywhere on your system!
 
 :::
+
+## 🎯 Quick Start After Installation
+
+Once installed, the easiest way to get started is to initialize a new FRX project:
+
+```bash
+frx init
+```
+
+This creates a `config.yaml` file with all available options, helpful comments, and examples for multiple frameworks. Then simply:
+
+1. Open `config.yaml` and configure your settings
+2. Add your API keys and tokens
+3. Run `frx build` to start building and releasing!
+
+For more details, see the [Getting Started Guide](/docs/Cookbook/get-started) or [Configuration Guide](/docs/configuration).

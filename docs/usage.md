@@ -18,11 +18,15 @@ These commands execute the core functions of Flutter Release X. Each command is 
 
 | Command                                           | Description                                                                                                                                                                                                         |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `frx init`                                        | Initialize a new FRX project by creating a starter `config.yaml` file with helpful comments and examples. Perfect for first-time users!                                                                           |
 | `frx build`                                       | Initiates the build process. If an advanced pipeline is configured, it executes that sequence; otherwise, it builds the release APK, uploads it to the cloud, and generates a QR code & download link (if enabled). |
 | `frx build -s`                                    | Outputs the current configuration file path, allowing you to quickly verify your environment setup.                                                                                                                 |
 | `frx build -c <path_to_config>`                   | Overrides the default `config.yaml` with a custom configuration file. This setting persists for subsequent builds until changed.                                                                                    |
 | `frx build --target all`                          | Compiles release versions for all supported platforms.                                                                                                                                                              |
 | `frx notify --platform slack --message 'message'` | Dispatches a notification to Slack with a custom message.                                                                                                                                                           |
+| `frx notify --platform teams --message 'message'` | Dispatches a notification to Microsoft Teams with a custom message.                                                                                                                                                   |
+| `frx check-update`                                | Manually check if a new version of FRX is available. Forces a fresh check (bypasses cache).                                                                                                                       |
+| `frx version`                                     | Display the current version of Flutter Release X (frx).                                                                                                                                                             |
 
 ---
 
@@ -43,5 +47,41 @@ Customize command behavior using the options below. Each entry includes the long
 :::tip Tip
 For additional details on any command or option, run `frx <command> --help`.
 :::
+
+---
+
+## 🔄 Update Checking
+
+Flutter Release X automatically checks for updates in the background when you run any command. This helps you stay up-to-date with the latest features and improvements.
+
+### Automatic Update Checks
+
+- **Background Checking**: FRX automatically checks for updates when you run any command (cached for 24 hours to minimize API calls)
+- **Non-Intrusive**: Update checks run asynchronously and won't block or slow down your commands
+- **Smart Caching**: Results are cached for 24 hours to avoid excessive API requests
+- **Update Notifications**: If a newer version is available, you'll see a friendly message with update instructions
+
+### Manual Update Check
+
+You can manually check for updates at any time using:
+
+```bash
+frx check-update
+```
+
+This command:
+- Forces a fresh check (bypasses the 24-hour cache)
+- Shows the current version and latest available version
+- Provides update instructions if a newer version is available
+
+### Updating FRX
+
+When a new version is available, update FRX using:
+
+```bash
+dart pub global activate flutter_release_x
+```
+
+Or visit the [pub.dev package page](https://pub.dev/packages/flutter_release_x) for more information.
 
 ---
