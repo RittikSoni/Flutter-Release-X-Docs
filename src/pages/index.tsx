@@ -117,7 +117,6 @@ export default function Home(): React.ReactElement {
     };
 
     animate();
-
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
