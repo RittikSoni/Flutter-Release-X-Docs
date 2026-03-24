@@ -48,21 +48,21 @@ const config: Config = {
       {
         name: "keywords",
         content:
-          "frx, flutter, flutter release x, flutter ci/cd, flutter pipeline, flutter automation",
+          "frx, flutter, flutter release x, flutter ci/cd, automated app distribution, flutter pipeline, flutter automation, mobile app deployment, ci cd for flutter",
       },
       {
         name: "description",
         content:
-          "Flutter Release X - Simplify your Flutter app release process with automation, pipelines, and CI/CD integration.",
+          "Flutter Release X - The ultimate tool to automate your Flutter app release process with powerful pipelines and seamless CI/CD integration.",
       },
       { name: "author", content: "Rittik Soni" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Rittik__Soni" },
-      { name: "twitter:title", content: "Flutter Release X" },
+      { name: "twitter:title", content: "Flutter Release X | Automated App Distribution" },
       {
         name: "twitter:description",
         content:
-          "Effortlessly release your Flutter apps with automated pipelines.",
+          "Effortlessly build, release, and distribute your Flutter apps with automated pipelines and one-command uploads.",
       },
       {
         name: "twitter:image",
@@ -70,11 +70,11 @@ const config: Config = {
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://frx.elpisverse.com" },
-      { property: "og:title", content: "Flutter Release X" },
+      { property: "og:title", content: "Flutter Release X | Automated App Distribution" },
       {
         property: "og:description",
         content:
-          "A powerful tool for automating Flutter app releases and CI/CD workflows.",
+          "Simplify your mobile app deployment. Automated pipelines for GitHub, Google Drive, App Store, Play Store and more.",
       },
       {
         property: "og:image",
@@ -100,7 +100,7 @@ const config: Config = {
           type: "docsVersion",
           position: "right",
           to: `${frxPackageLink}`,
-          label: "v0.5.0",
+          label: "v0.6.0",
         },
         {
           href: "https://github.com/RittikSoni",
@@ -198,7 +198,7 @@ const config: Config = {
   },
 
   title: "Flutter Release X",
-  tagline: "Effortless Flutter Releases",
+  tagline: "Automate Flutter app releases with powerful CI/CD pipelines.",
   url: "https://elpisverse.com",
   baseUrl: "/",
   favicon: "img/favicon.ico",

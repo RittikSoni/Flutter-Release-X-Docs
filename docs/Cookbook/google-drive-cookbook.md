@@ -1,69 +1,90 @@
 ---
 sidebar_position: 3
+title: Upload to Google Drive
+description: How to automatically upload your Flutter app release builds to Google Drive using Flutter Release X.
+keywords: [frx google drive upload, flutter release google drive, frx cloud upload, automated drive upload]
 ---
 
-# Upload Release to Google Drive
+# Upload to Google Drive
+
+Automatically upload your Flutter app builds to Google Drive after each release, then share the download link and QR code — all with a single command.
+
+:::info Setup Required
+You'll need OAuth 2.0 credentials from Google Cloud Console. See the [Google Drive Setup Guide](/docs/cloud-integration#google-drive-configuration) for step-by-step instructions.
+:::
+
+---
 
 ## Prerequisites
 
-Before uploading releases to Google Drive, ensure that you have:
+- Google Cloud project with the **Google Drive API** enabled
+- OAuth 2.0 credentials (`client_id` and `client_secret`)
+- FRX installed (`dart pub global activate flutter_release_x`)
 
-- A Google Drive API setup with credentials.
-- A valid config.yaml file with Google Drive upload enabled.
-- The frx package installed.
+---
 
-:::info
-You can find Google Drive Setup [here](/docs/cloud-integration#google-drive-configuration)
-:::
-
-## Step-by-Step Guide
-
-### 1. Enable Google Drive Upload
-
-Update your config.yaml file:
-
-#### Sample Config file
+## Step 1: Configure `config.yaml`
 
 ```yaml
-# Path to Flutter binary
-# Example for Windows: C:/dev/flutter/bin/flutter.bat
-# Example for macOS: /Users/USER_NAME/development/flutter/bin/flutter
+# Optional: Path to Flutter binary (if flutter isn't in your system PATH)
 flutter_path: FLUTTER/BINARY/PATH
 
 upload_options:
-  github:
-    enabled: false
+  google_drive:
+    enabled: true
+    client_id: YOUR_CLIENT_ID         # From Google Cloud Console
+    client_secret: YOUR_CLIENT_SECRET # From Google Cloud Console
 
- google_drive:
-   enabled: true
-   client_id: YOUR_CLIENT_ID # Required: Google API Client ID
-   client_secret: YOUR_CLIENT_SECRET # Required: Google API Client Secret
-
-  slack:
-    enabled: false
-
-# QR Code generation settings
 qr_code:
-  enabled: true # Whether to generate QR codes (true/false)
-  save_file: true # Save the QR code image to the file system (true/false)
-  show_in_command: true # Display QR code in the command line output (true/false)
-  size: 256 # Size of the generated QR code (pixels)
-  error_correction_level: low # Error correction level: low, medium, quartile, high
-  save_path: "./release-qr-code.png" # File path to save the QR code image
+  enabled: true
+  save_file: true
+  show_in_command: true
+  size: 256
+  error_correction_level: low
+  save_path: "./release-qr-code.png"
 ```
 
-Your credentials must be obtained from Google Cloud Console after enabling the Google Drive API.
+> On first run, FRX will open a browser window to authenticate your Google account. After that, credentials are cached locally in `gdcredentials.json`.
 
-### 2. Build & Release with FRX
+---
 
-After creating the config.yaml, run the following command to build your Flutter app and trigger the release process:
+## Step 2: Build and Upload
 
 ```bash
 frx build
 ```
 
-### 3. Verify the Upload
+FRX will:
+1. Build the release APK
+2. Authenticate with Google Drive (browser prompt on first run)
+3. Upload the APK to your Google Drive
+4. Generate a sharable download link and QR code
 
-- Open Google Drive.
-- Navigate to the folder/home.
-- Check if the release file is uploaded successfully.
+---
+
+## Step 3: Verify the Upload
+
+1. Open [Google Drive](https://drive.google.com)
+2. Find the uploaded file in your root or a designated folder
+3. Confirm the file is accessible and the link is shareable
+
+---
+
+:::warning Security
+Add both `config.yaml` and `gdcredentials.json` to your `.gitignore` to prevent leaking credentials.
+
+```
+config.yaml
+gdcredentials.json
+```
+
+See the [gitignore Guide](/docs/gitignore).
+:::
+
+---
+
+## What's Next?
+
+- Combine Drive uploads with **Slack notifications** → [Slack Cookbook](./slack-cookbook)
+- Upload to **GitHub Releases** as well → [GitHub Cookbook](./github-cookbook)
+- Build a full CI/CD pipeline → [Advanced Pipeline Cookbook](./advance-cookbook)

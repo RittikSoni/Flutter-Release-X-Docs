@@ -1,87 +1,95 @@
 ---
 id: usage
-title: Usage
+title: Usage & Commands
 sidebar_position: 3
+description: Complete reference for all Flutter Release X (frx) commands and CLI options. Learn how to build, release, notify, and manage pipelines.
+keywords: [frx commands, flutter release x cli, frx build, frx pipeline, frx notify, frx usage]
 ---
 
-:::tip Did you know...
-**Flutter Release X** not only streamlines your Flutter & Non-Flutter app deployment but also give you power to run custom pipeline or workflow by offering a powerful and intuitive command-line interface.
-:::
+# Usage & Commands
 
-The documentation below is divided into two sections: primary commands and configurable CLI options.
+Flutter Release X provides a focused set of commands to build, release, notify, and manage your application pipelines — all from your terminal.
 
----
-
-## **Primary Commands**
-
-These commands execute the core functions of Flutter Release X. Each command is designed to simplify your workflow.
-
-| Command                                           | Description                                                                                                                                                                                                         |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `frx init`                                        | Initialize a new FRX project by creating a starter `config.yaml` file with helpful comments and examples. Perfect for first-time users!                                                                           |
-| `frx build`                                       | Initiates the build process. If an advanced pipeline is configured, it executes that sequence; otherwise, it builds the release APK, uploads it to the cloud, and generates a QR code & download link (if enabled). |
-| `frx build -s`                                    | Outputs the current configuration file path, allowing you to quickly verify your environment setup.                                                                                                                 |
-| `frx build -c <path_to_config>`                   | Overrides the default `config.yaml` with a custom configuration file. This setting persists for subsequent builds until changed.                                                                                    |
-| `frx build --target all`                          | Compiles release versions for all supported platforms.                                                                                                                                                              |
-| `frx notify --platform slack --message 'message'` | Dispatches a notification to Slack with a custom message.                                                                                                                                                           |
-| `frx notify --platform teams --message 'message'` | Dispatches a notification to Microsoft Teams with a custom message.                                                                                                                                                   |
-| `frx check-update`                                | Manually check if a new version of FRX is available. Forces a fresh check (bypasses cache).                                                                                                                       |
-| `frx version`                                     | Display the current version of Flutter Release X (frx).                                                                                                                                                             |
-
----
-
-## **CLI Options & Flags**
-
-Customize command behavior using the options below. Each entry includes the long form, its shorthand alias, acceptable values, and a clear description.
-
-| Option          | Alias | Possible Values                                             | Description                                                             |
-| --------------- | ----- | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `--target`      | `-t`  | `all`, `android`, `ios`, `macos`, `windows`, `web`, `linux` | Defines the target platform(s) for the build command.                   |
-| `--platform`    | `-p`  | `slack` (more options forthcoming)                          | Specifies the notification platform for the notify command.             |
-| `--message`     | `-m`  | Custom message string                                       | Sets a custom notification message.                                     |
-| `--config`      | `-c`  | File path                                                   | Specifies a custom configuration file to override the default settings. |
-| `--show-config` | `-s`  | -                                                           | Displays the current configuration file path for verification purposes. |
-
----
-
-:::tip Tip
-For additional details on any command or option, run `frx <command> --help`.
+:::tip
+For help on any command, run `frx <command> --help`.
 :::
 
 ---
 
-## 🔄 Update Checking
+## Core Commands
 
-Flutter Release X automatically checks for updates in the background when you run any command. This helps you stay up-to-date with the latest features and improvements.
+| Command | Description |
+|---|---|
+| `frx init` | Generate a starter `config.yaml` with all options, comments, and pipeline examples. |
+| `frx build` | Build the release app, upload to cloud, generate QR code & download link. |
+| `frx build -s` | Display the current config file path for quick verification. |
+| `frx build -c <path>` | Use a custom config file instead of the default `config.yaml`. |
+| `frx build --target all` | Build for all supported platforms (Android, iOS, Web, macOS, Windows, Linux). |
+| `frx build --pipeline <name>` | Run a specific named pipeline via the build command. |
+| `frx pipeline list` | List all configured pipelines with their descriptions and step counts. |
+| `frx pipeline validate` | Validate your pipeline config and show detailed, actionable errors. |
+| `frx pipeline run <name>` | Run a specific named pipeline. |
+| `frx pipeline help-all` | Show a complete feature reference for pipeline configuration. |
+| `frx notify -p slack -m 'msg'` | Send a custom notification to Slack. |
+| `frx notify -p teams -m 'msg'` | Send a custom notification to Microsoft Teams. |
+| `frx check-update` | Manually check if a new version of FRX is available. |
+| `frx version` | Display the currently installed version. |
 
-### Automatic Update Checks
+---
 
-- **Background Checking**: FRX automatically checks for updates when you run any command (cached for 24 hours to minimize API calls)
-- **Non-Intrusive**: Update checks run asynchronously and won't block or slow down your commands
-- **Smart Caching**: Results are cached for 24 hours to avoid excessive API requests
-- **Update Notifications**: If a newer version is available, you'll see a friendly message with update instructions
+## CLI Flags & Options
 
-### Manual Update Check
+| Option | Alias | Values | Description |
+|---|---|---|---|
+| `--target` | `-t` | `all`, `android`, `ios`, `macos`, `windows`, `web`, `linux` | Target platform(s) for the build command. |
+| `--platform` | `-p` | `slack`, `teams` | Notification platform for the notify command. |
+| `--message` | `-m` | `"your message"` | Custom notification message text. |
+| `--config` | `-c` | `path/to/config.yaml` | Path to a custom configuration file. |
+| `--show-config` | `-s` | — | Show the current config file path. |
+| `--pipeline` | — | `pipeline-name` | Run a specific named pipeline. |
 
-You can manually check for updates at any time using:
+---
+
+## Pipeline Commands
+
+FRX `v0.6.0` introduces a dedicated `pipeline` command group for managing multi-step workflows:
+
+```bash
+# List all pipelines
+frx pipeline list
+
+# Check for errors before running
+frx pipeline validate
+
+# Run a specific pipeline by name
+frx pipeline run my-pipeline
+
+# Full pipeline feature reference
+frx pipeline help-all
+```
+
+---
+
+## 🔄 Automatic Update Checking
+
+FRX silently checks for new versions in the background whenever you run a command (results cached for 24 hours).
+
+- **Non-blocking**: Update checks run asynchronously — your commands run at full speed.
+- **Smart caching**: Only checks once every 24 hours to avoid excessive network calls.
+- **In-place notifications**: If an update is found, a friendly prompt appears after your command completes.
+
+### Manual Check
+
+Force a fresh update check at any time:
 
 ```bash
 frx check-update
 ```
 
-This command:
-- Forces a fresh check (bypasses the 24-hour cache)
-- Shows the current version and latest available version
-- Provides update instructions if a newer version is available
-
-### Updating FRX
-
-When a new version is available, update FRX using:
+### Update FRX
 
 ```bash
 dart pub global activate flutter_release_x
 ```
 
-Or visit the [pub.dev package page](https://pub.dev/packages/flutter_release_x) for more information.
-
----
+Or visit the [pub.dev package page](https://pub.dev/packages/flutter_release_x) for release notes.

@@ -9,11 +9,11 @@ export default function Home(): React.ReactElement {
 
   // ✅ Taglines for Typewriter Effect
   const taglines = [
-    "Effortlessly release your Flutter, or non-Flutter apps.",
-    "Works with any project, whether it's Flutter, React, or other non-Flutter projects.",
-    "Seamless CI/CD pipeline for all platforms.",
-    "Automate your app release process today!",
-    "Release, deploy, and share with one command!",
+    "Automate your Flutter app releases with a single command.",
+    "Powerful multi-step CI/CD pipelines for mobile, web, and desktop.",
+    "Seamlessly distribute to GitHub, Play Store, App Store, and more.",
+    "Effortlessly share builds with testers via auto-generated QR codes.",
+    "The ultimate release toolkit for Flutter and Non-Flutter projects.",
   ];
 
   const [text, setText] = React.useState("");

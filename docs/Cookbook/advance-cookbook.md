@@ -1,179 +1,238 @@
 ---
 sidebar_position: 6
+title: Advanced Pipeline Cookbook
+description: Real-world automation recipes using FRX Advanced Pipelines for Flutter, React, Node.js, Python, Docker, and DevOps workflows.
+keywords: [frx pipeline cookbook, flutter automation, ci cd pipeline recipes, automated deployment]
 ---
 
 # Advanced Pipeline Cookbook
 
-This guide provides various **automation pipelines** for different tech stacks using the **Advanced Pipeline** system. It includes Flutter, React, Node.js, Python, DevOps, and more!
+This cookbook provides **ready-to-use pipeline recipes** for common automation scenarios. Whether you're building Flutter apps, deploying backends, or running DevOps tasks — there's a recipe for you.
+
+:::tip New in v0.6.0
+Use named pipelines to organize multiple workflows in one config file. Run them individually with `frx pipeline run <name>`.
+:::
 
 ---
 
-## 📌 1. Custom Build Pipelines ✅
+## 🛠 1. Custom Command Pipelines
 
-The Advanced Pipeline allows running **custom commands** like:
+Run any shell command as a pipeline step — great for quick sanity checks:
 
 ```yaml
-pipeline_steps:
-  - name: "Check Flutter Version"
-    command: "flutter --version"
+pipelines:
+  check-env:
+    description: "Verify development environment"
+    steps:
+      - name: "Check Flutter Version"
+        command: "flutter --version"
 
-  - name: "Check Git Status"
-    command: "git status"
+      - name: "Check Git Status"
+        command: "git status"
 ```
 
----
-
-## 🔥 2. Flutter Cookbooks
-
-### **2.1 Multi-Platform Build & Deployment**
-
-```yaml
-pipeline_steps:
-  - name: "Build for Specific Platforms"
-    command: frx build --target ios,android
-```
-
-```yaml
-pipeline_steps:
-  - name: Build for All Platforms
-    command: frx build -t all # build release for all available platforms.
-```
-
-### **2.2 Advanced Notifications**
-
-```yaml
-pipeline_steps:
-  - name: "Send Slack Notification"
-    command: "frx notify --platform slack --message '🚀 New Release Available!'"
-```
-
-```yaml
-pipeline_steps:
-  - name: "Send Slack Notification with emojis symbol"
-    command: "frx notify -p slack -m ':rocket: New Release Available!'"
+```bash
+frx pipeline run check-env
 ```
 
 ---
 
-## 🔥 3. Web Development Cookbooks
+## 🚀 2. Flutter Recipes
 
-### **3.1 Build & Deploy React/Next.js**
+### Multi-Platform Build
 
 ```yaml
-pipeline_steps:
-  - name: "Build React App"
-    command: "npm run build"
-
-  - name: "Deploy to Server"
-    command: "scp -r build/ user@server:/var/www/html"
+pipelines:
+  multi-platform:
+    description: "Build and release for iOS and Android"
+    steps:
+      - name: "Build iOS & Android"
+        command: "frx build --target ios,android"
 ```
 
-### **3.2 Automate Git Operations**
+Build for all supported platforms at once:
 
 ```yaml
-pipeline_steps:
-  - name: "Auto Commit & Push"
-    command: "git add . && git commit -m 'Auto release' && git push"
+      - name: "Build All Platforms"
+        command: "frx build --target all"
 ```
 
-### **3.3 Lint & Format Code**
+### Send Slack Notification After Build
 
 ```yaml
-pipeline_steps:
-  - name: "Run ESLint & Prettier"
-    command: "eslint . --fix && prettier --write ."
-```
+pipelines:
+  notify-release:
+    description: "Notify Slack after release"
+    steps:
+      - name: "Build APK"
+        command: "flutter build apk --release"
+        upload_output: true
+        output_path: "./build/app/outputs/flutter-apk/app-release.apk"
+        notify_slack: true
 
----
-
-## 🔥 4. Mobile Development Cookbooks
-
-### **4.1 Build & Deploy React Native (Android & iOS)**
-
-```yaml
-pipeline_steps:
-  - name: "Build React Native APK"
-    command: "npx react-native run-android --variant=release"
-```
-
-### **4.2 Upload to Play Store / App Store**
-
-```yaml
-pipeline_steps:
-  - name: "Upload Android Release to Play Store"
-    command: "fastlane supply --track production --aab app-release.aab"
+      - name: "Notify Team"
+        command: "frx notify --platform slack --message '🚀 New build is ready!'"
 ```
 
 ---
 
-## 🔥 5. Node.js & Backend Cookbooks
+## 🌐 3. Web Development Recipes
 
-### **5.1 Start, Build & Deploy a Node.js API**
+### React / Next.js Build & Deploy
 
 ```yaml
-pipeline_steps:
-  - name: "Build & Restart API"
-    command: "npm run build && pm2 restart my-api"
+pipelines:
+  react-deploy:
+    description: "Build and deploy React app"
+    steps:
+      - name: "Build"
+        command: "npm run build"
+
+      - name: "Deploy to Server"
+        command: "scp -r build/ user@server:/var/www/html"
 ```
 
-### **5.2 Run Tests & Coverage Reports**
+### Auto Git Commit & Push
 
 ```yaml
-pipeline_steps:
-  - name: "Run Jest Tests"
-    command: "jest --coverage"
+pipelines:
+  auto-push:
+    description: "Auto-commit and push changes"
+    steps:
+      - name: "Commit & Push"
+        command: "git add . && git commit -m 'Auto release' && git push"
 ```
 
----
-
-## 🔥 6. Database & DevOps Cookbooks
-
-### **6.1 Auto Migrations & Database Sync**
+### Lint & Format
 
 ```yaml
-pipeline_steps:
-  - name: "Apply Database Migrations"
-    command: "npx prisma migrate deploy"
-```
-
-### **6.2 Automate Docker Builds & Deployments**
-
-```yaml
-pipeline_steps:
-  - name: "Build & Start Docker Container"
-    command: "docker build -t my-app . && docker-compose up -d"
-```
-
-### **6.3 Deploy Apps to AWS, GCP, DigitalOcean, Vercel**
-
-```yaml
-pipeline_steps:
-  - name: "Deploy to Vercel"
-    command: "vercel --prod"
+pipelines:
+  lint:
+    description: "Lint and format code"
+    steps:
+      - name: "ESLint + Prettier"
+        command: "eslint . --fix && prettier --write ."
+        allow_failure: true
 ```
 
 ---
 
-## 🔥 7. Security & Optimization Cookbooks
+## 📱 4. Mobile Development Recipes
 
-### **7.1 Check for Security Vulnerabilities**
+### React Native Build
 
 ```yaml
-pipeline_steps:
-  - name: "Run Security Audit"
-    command: "npm audit --fix"
+pipelines:
+  rn-build:
+    description: "Build React Native APK"
+    steps:
+      - name: "Build APK"
+        command: "npx react-native run-android --variant=release"
 ```
 
-### **7.2 Monitor Performance & Logs**
+### Upload to App Stores via Fastlane
 
 ```yaml
-pipeline_steps:
-  - name: "Check App Logs"
-    command: "pm2 logs my-app"
+pipelines:
+  store-upload:
+    description: "Upload to Google Play Store"
+    steps:
+      - name: "Upload Android"
+        command: "fastlane supply --track production --aab app-release.aab"
 ```
 
 ---
 
-## 🚀 Conclusion
+## ⚙️ 5. Node.js & Backend Recipes
 
-This **Advanced Pipeline Cookbook** helps **automate workflows** for **Flutter, Web, Backend, Mobile, DevOps, and more** without extra CI/CD costs!
+### Build and Restart API
+
+```yaml
+pipelines:
+  api-deploy:
+    steps:
+      - name: "Build & Restart"
+        command: "npm run build && pm2 restart my-api"
+```
+
+### Run Tests with Coverage
+
+```yaml
+pipelines:
+  test-coverage:
+    steps:
+      - name: "Jest Tests"
+        command: "jest --coverage"
+```
+
+---
+
+## 🐳 6. Docker & DevOps Recipes
+
+### Docker Build & Deploy
+
+```yaml
+pipelines:
+  docker-deploy:
+    description: "Build and run Docker container"
+    steps:
+      - name: "Build & Start"
+        command: "docker build -t my-app . && docker-compose up -d"
+```
+
+### Database Migrations
+
+```yaml
+pipelines:
+  db-migrate:
+    steps:
+      - name: "Apply Migrations"
+        command: "npx prisma migrate deploy"
+```
+
+### Deploy to Cloud Providers
+
+```yaml
+pipelines:
+  cloud-deploy:
+    steps:
+      - name: "Deploy to Vercel"
+        command: "vercel --prod"
+```
+
+---
+
+## 🔐 7. Security Recipes
+
+### Security Audit
+
+```yaml
+pipelines:
+  security:
+    steps:
+      - name: "Audit Dependencies"
+        command: "npm audit --fix"
+        allow_failure: true
+```
+
+### Monitor App Logs
+
+```yaml
+pipelines:
+  monitor:
+    steps:
+      - name: "Check Logs"
+        command: "pm2 logs my-app"
+```
+
+---
+
+## 📌 Summary
+
+The Advanced Pipeline lets you automate any workflow — from Flutter builds to Docker deployments — without expensive CI/CD infrastructure. Define your pipelines in `config.yaml`, and run them with a single command.
+
+```bash
+frx pipeline list      # See all your pipelines
+frx pipeline validate  # Validate before running
+frx pipeline run <name> # Run a specific pipeline
+```

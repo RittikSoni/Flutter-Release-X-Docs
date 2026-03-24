@@ -1,50 +1,71 @@
 ---
 title: Getting Started
 sidebar_position: 1
+description: Start using Flutter Release X in under 5 minutes. Install, initialize, and run your first automated release.
+keywords: [frx install, flutter release x getting started, frx setup, flutter ci/cd setup]
 ---
 
-## FRX Cookbook
+# Getting Started with FRX
 
-Welcome to the Flutter Release X (FRX) Cookbook! This guide provides practical recipes and best practices to help you streamline your Flutter release process.
+Welcome to the **Flutter Release X (FRX) Cookbook** — a collection of practical recipes to help you automate your app release process quickly and effectively.
 
-## 📌 Getting Started
+---
 
-Before using these recipes, make sure you have FRX(Flutter Release X) installed:
+## Prerequisites
+
+Make sure you have FRX installed before following any recipe:
 
 ```bash
 dart pub global activate flutter_release_x
 ```
 
-For more details, follow [Installation](/docs/installation)
+> Need help? See the full [Installation Guide](/docs/installation).
 
-## 🚀 Quick Setup with `frx init`
+---
 
-The easiest way to get started is to initialize a new FRX project:
+## 🚀 Initialize Your Project
+
+The fastest way to set up FRX is with the `frx init` command:
 
 ```bash
 frx init
 ```
 
-This command creates a `config.yaml` file in your current directory with:
+This generates a `config.yaml` file in your current directory with:
 - ✅ All available upload options (commented out, ready to enable)
-- ✅ QR code settings with sensible defaults
-- ✅ Helpful comments and examples
+- ✅ Sensible QR code defaults
+- ✅ Helpful inline comments for every option
 - ✅ Multi-framework pipeline examples (Flutter, React, Python, .NET, etc.)
-- ✅ Links to setup documentation
+- ✅ Links to the relevant setup documentation
 
-Then simply:
-1. Open `config.yaml` and configure the services you want to use
+**Then follow these 3 steps:**
+1. Open `config.yaml` — uncomment the services you want
 2. Add your API keys and tokens
-3. Run `frx build` to start building and releasing!
+3. Run `frx build` to build, upload, and share your app automatically
 
-You can also specify a custom config filename:
+---
+
+## Custom Config File
+
+Use a different filename with the `--config` flag:
 
 ```bash
-frx init --config my-config.yaml
+frx init --config my-settings.yaml
 ```
 
-Or force overwrite an existing config:
+Force-overwrite an existing config:
 
 ```bash
 frx init --force
 ```
+
+---
+
+## What's Next?
+
+| I want to... | Go to |
+|---|---|
+| Upload to GitHub / Google Drive | [Cloud Integration](/docs/cloud-integration) |
+| Run a multi-step pipeline | [Advanced Pipeline Cookbook](./advance-cookbook) |
+| Share builds on Slack | [Slack Cookbook](./slack-cookbook) |
+| Generate QR codes | [QR Code Cookbook](./qr-cookbook) |

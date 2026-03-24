@@ -1,90 +1,93 @@
 ---
 sidebar_position: 4
+title: Slack Release Notifications
+description: How to send automated Slack notifications with QR codes and download links when you release your Flutter app using FRX.
+keywords: [frx slack notification, flutter slack bot, release notification slack, frx notify]
 ---
 
-# Send Release Notifications to Slack
+# Slack Release Notifications
+
+Send automatic notifications to a Slack channel — including the download link and QR code — every time you run `frx build`.
+
+:::info Slack Setup
+Need to create a Slack Bot and get a token? See the [Slack Setup Guide](/docs/slack-setup).
+:::
+
+---
 
 ## Prerequisites
 
-Before enabling Slack notifications, ensure you have:
+- A Slack workspace with a channel for build notifications
+- A Slack Bot with `chat:write` and `files:write` scopes
+- Your Bot's OAuth Token (`xoxb-...`) and the target Channel ID
 
-- A Slack workspace and a channel where you want to send notifications.
-- A Slack Bot User OAuth Token (`bot_user_oauth_token`).
-- A valid config.yaml file with Slack notifications enabled.
+---
 
-:::info
-You can find the Slack setup guide [here.](/docs/slack-setup)
-:::
-
-## Step-by-Step Guide
-
-### 1. Enable Slack Notifications
-
-Update your config.yaml file with the Slack Bot Token and Channel ID:
-
-#### Sample Config file
+## Step 1: Configure `config.yaml`
 
 ```yaml
-# Path to Flutter binary
-# Example for Windows: C:/dev/flutter/bin/flutter.bat
-# Example for macOS: /Users/USER_NAME/development/flutter/bin/flutter
-flutter_path: FLUTTER/BINARY/PATH
-
 upload_options:
-  github:
-    enabled: false
-
- google_drive:
-   enabled: true
-   client_id: YOUR_CLIENT_ID # Required: Google API Client ID
-   client_secret: YOUR_CLIENT_SECRET # Required: Google API Client Secret
-
- slack:
-     enabled: true
-     bot_user_oauth_token: YOUR_BOT_TOKEN # Required: Slack Bot OAuth Token, e.g., xoxb-XXXXXXXXX-XXXXXXXXX-XXXXXXXXXXXXX
-     default_channel_id: CHANNEL_ID # Required: Slack channel ID, e.g., CXXXXXXXXX
-     share_QR: true # Optional: Share QR code in Slack (default: true)
-     share_link: true # Optional: Share build download link in Slack (default: true)
-     custom_message: "🚀 Check out the latest build! Download your app now!" # [OPTIONAL] Custom message to accompany the link
-     mention_users: ["U0XXXXXXX", "U08XXXXXXXX"] # [OPTIONAL] List of Slack user/member IDs to mention. Note: not username or display name.
-
-# QR Code generation settings
-qr_code:
-  enabled: true # Whether to generate QR codes (true/false)
-  save_file: true # Save the QR code image to the file system (true/false)
-  show_in_command: true # Display QR code in the command line output (true/false)
-  size: 256 # Size of the generated QR code (pixels)
-  error_correction_level: low # Error correction level: low, medium, quartile, high
-  save_path: "./release-qr-code.png" # File path to save the QR code image
+  slack:
+    enabled: true
+    bot_user_oauth_token: YOUR_BOT_TOKEN   # xoxb-XXXXXXXXX-XXXXXXXXX-XXXXXXXXXXXXX
+    default_channel_id: CHANNEL_ID         # e.g., C0XXXXXXXXX
+    share_QR: true             # Share QR code image in the message
+    share_link: true           # Share the build download link
+    custom_message: "🚀 New build is ready! Download and test now."
+    mention_users:             # Optional: Slack Member IDs to @mention (not usernames)
+      - "U0XXXXXXX"
+      - "U08XXXXXXXX"
 ```
 
-:::warning
-Do not commit your bot_user_oauth_token to a public repository. Use environment variables instead.
-& for Best Practice follow [.gitignore](/docs/gitignore)
-:::
-
 :::important
-`share_link` requires at least one cloud upload option (`google_drive` or `github`) to be enabled.
-If no upload option is enabled, FRX will return a default local link instead.
+`share_link` requires at least one cloud upload (e.g., `github` or `google_drive`) to be enabled. Without an upload, FRX will share a local path instead.
 :::
 
-### 2. Build & Release with FRX
+---
 
-After creating the config.yaml, run the following command to build your Flutter app and trigger the release process:
+## Step 2: Build and Notify
 
 ```bash
 frx build
 ```
 
-### 3. Verify Slack Notification
+After a successful build and upload, FRX will post a Slack message with:
+- ✅ Your custom message
+- 📎 QR code image (if `share_QR: true`)
+- 🔗 Download link (if `share_link: true`)
+- 👋 @mentions for listed user IDs
 
-After running the command:
+---
 
-- The Slack bot will send a message in the configured channel (default_channel_id).
-- If share_QR is enabled, a QR code will be attached to the message.
-- If share_link is enabled, the download link for the release will be included.
+## Send a Standalone Notification
+
+You can also send notifications without triggering a build:
+
+```bash
+frx notify --platform slack --message "🚀 v1.0.0 is live!"
+# Shorthand:
+frx notify -p slack -m "🚀 v1.0.0 is live!"
+```
+
+---
 
 ## Troubleshooting
 
-- Ensure your Slack Bot Token has permissions to send messages to the specified channel.
-- If users are not mentioned, verify that the provided user IDs are correct (Slack requires IDs, not usernames).
+| Issue | Fix |
+|---|---|
+| Bot doesn't post to channel | Ensure the bot is **invited** to the channel |
+| Users not mentioned | Use **Member IDs** (e.g., `U0XXXXXXX`), not display names |
+| Link not shared | Enable at least one upload option (`github`, `google_drive`, etc.) |
+
+---
+
+:::warning Security
+Never commit your `bot_user_oauth_token` to a public repo. Add `config.yaml` to your `.gitignore`.
+:::
+
+---
+
+## What's Next?
+
+- Use Slack notifications **inside a pipeline step** → [Advanced Pipeline Cookbook](./advance-cookbook)
+- Set up **Microsoft Teams** notifications → [Teams Setup Guide](/docs/teams-setup)

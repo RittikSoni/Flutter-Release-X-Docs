@@ -1,83 +1,88 @@
 ---
 sidebar_position: 2
+title: Upload to GitHub Releases
+description: Step-by-step guide to uploading your Flutter app build to GitHub Releases using Flutter Release X.
+keywords: [frx github upload, flutter github release, automated github release, frx github token]
 ---
 
-# Upload Release to GitHub
+# Upload to GitHub Releases
+
+Automatically upload your Flutter app builds to GitHub Releases with a download link and QR code — all with a single command.
+
+:::info Setup Required
+You'll need a GitHub Personal Access Token (PAT) with `repo` scope. See the [GitHub Setup Guide](/docs/cloud-integration#github-configuration) for detailed steps.
+:::
+
+---
 
 ## Prerequisites
 
-Make sure you have:
+- A GitHub repository where you want to publish releases
+- A GitHub PAT with `repo` scope
+- FRX installed (`dart pub global activate flutter_release_x`)
 
-- A GitHub repository where you want to upload your release.
-- A GitHub Personal Access Token (PAT) with the repo and workflow scopes.
-- A valid config.yaml file in your project root.
+---
 
-:::info
-You can find GitHub Setup [here](/docs/cloud-integration#github-configuration)
-:::
-
-## Step-by-Step Guide
-
-### 1. Create a Configuration File
-
-Create a config.yaml file in the root directory of your project to define your upload options and QR code generation settings.
-
-#### Sample Config file
+## Step 1: Configure `config.yaml`
 
 ```yaml
-# Path to Flutter binary
-# Example for Windows: C:/dev/flutter/bin/flutter.bat
-# Example for macOS: /Users/USER_NAME/development/flutter/bin/flutter
+# Optional: Path to Flutter binary (if not in your system PATH)
 flutter_path: FLUTTER/BINARY/PATH
 
 upload_options:
   github:
     enabled: true
-    token: YOUR_GITHUB_TOKEN # Required: Personal Access Token for GitHub
-    repo: REPO/PATH # Required: GitHub repository path, e.g., RittikSoni/Flutter-Release-X
-    tag: v0.0.1 # Release tag (e.g., version number)
+    token: YOUR_GITHUB_TOKEN  # Personal Access Token with `repo` scope
+    repo: OWNER/REPO_NAME     # e.g., RittikSoni/Flutter-Release-X
+    tag: v1.0.0               # Release tag
 
-  google_drive:
-    enabled: false
-
-  slack:
-    enabled: false
-
-# QR Code generation settings
 qr_code:
-  enabled: true # Whether to generate QR codes (true/false)
-  save_file: true # Save the QR code image to the file system (true/false)
-  show_in_command: true # Display QR code in the command line output (true/false)
-  size: 256 # Size of the generated QR code (pixels)
-  error_correction_level: low # Error correction level: low, medium, quartile, high
-  save_path: "./release-qr-code.png" # File path to save the QR code image
+  enabled: true
+  save_file: true
+  show_in_command: true
+  size: 256
+  error_correction_level: low
+  save_path: "./release-qr-code.png"
 ```
 
-### 2. Build & Release with FRX
+---
 
-After creating the config.yaml, run the following command to build your Flutter app and trigger the release process:
+## Step 2: Build and Release
 
 ```bash
 frx build
 ```
 
-## Additional Tips
+FRX will:
+1. Build the release APK
+2. Upload it to your GitHub repository as a release asset under the specified tag
+3. Generate a QR code pointing to the download link
 
-- **Authentication**: Ensure your GitHub token has the necessary permissions (repo, workflow, packages).
-- **Optional Integrations**: You can enable google_drive or slack by updating the config.yaml file.
+---
 
-:::tip Best Practice
-Use a **GitHub Personal Access Token** with the `repo` and `workflow` scopes to avoid authentication issues when uploading releases. You can find github setup [here](/docs/cloud-integration#github-configuration)
+## Best Practices
+
+:::warning Security
+**Never commit your `config.yaml` with tokens to a public repository.** Add it to `.gitignore`.
+
+```
+config.yaml
+gdcredentials.json
+```
+See the full [`.gitignore` Guide](/docs/gitignore).
 :::
 
-:::important
-Ensure that `frx` is installed globally or added to your `dev_dependencies` to avoid command not found errors.
-:::
-
-:::warning
-Do **not** commit your `config.yaml` file with sensitive API tokens to a public repository.
+:::tip
+Use a **fine-grained Personal Access Token** scoped only to the target repository and with `Contents: Read and Write` permission for better security.
 :::
 
 :::note
 You can customize the QR code output path using the `save_path` option in `config.yaml`.
 :::
+
+---
+
+## What's Next?
+
+- Combine with **Slack notifications** to alert your team after every release → [Slack Cookbook](./slack-cookbook)
+- Set up a **full CI pipeline** with tests, build, and upload → [Advanced Pipeline Cookbook](./advance-cookbook)
