@@ -54,7 +54,7 @@ const config: Config = {
       indexName: "FRX - Elpisverse crawler",
 
       // Optional: Algolia Assistant ID for AI search
-      // askAi: "YOUR_ALGOLIA_ASSISTANT_ID", // TODO: Replace with your Algolia Assistant ID
+       askAi: "BpDiTcunHo1l", // TODO: Replace with your Algolia Assistant ID
 
       // ✅ Enable Algolia Search Analytics / Insights
       insights: true,
