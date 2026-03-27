@@ -43,8 +43,35 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
+    // ✅ Algolia Search Integration
+    algolia: {
+      // The application ID provided by Algolia
+      appId: "68L08MMDFQ",
+
+      // Public API key: it is safe to commit it
+      apiKey: "0b674975b3d1aee90e6c2b867f633b93",
+
+      indexName: "FRX - Elpisverse crawler",
+
+      // Optional: Algolia Assistant ID for AI search
+      // askAi: "YOUR_ALGOLIA_ASSISTANT_ID", // TODO: Replace with your Algolia Assistant ID
+
+      // ✅ Enable Algolia Search Analytics / Insights
+      insights: true,
+      searchParameters: {
+        clickAnalytics: true,
+      },
+
+      // Optional: see doc section below
+      contextualSearch: true,
+    },
+
     // ✅ SEO & Social Media Meta Tags
     metadata: [
+      {
+        name: "algolia-site-verification",
+        content: "97228F635181C019",
+      },
       {
         name: "keywords",
         content:
