@@ -2,8 +2,8 @@
 id: usage
 title: Usage & Commands
 sidebar_position: 3
-description: Complete reference for all Flutter Release X (frx) commands and CLI options. Learn how to build, release, notify, and manage pipelines.
-keywords: [frx commands, flutter release x cli, frx build, frx pipeline, frx notify, frx usage]
+description: Complete reference for all Flutter Release X (frx) commands and CLI options. Learn how to build, release, notify, manage pipelines, and set up git hooks.
+keywords: [frx commands, flutter release x cli, frx build, frx pipeline, frx hooks, frx notify, frx usage]
 ---
 
 # Usage & Commands
@@ -20,7 +20,7 @@ For help on any command, run `frx <command> --help`.
 
 | Command | Description |
 |---|---|
-| `frx init` | Generate a starter `config.yaml` with all options, comments, and pipeline examples. |
+| `frx init` | Generate a starter `config.yaml` with hooks, pipeline examples, and all options. |
 | `frx build` | Build the release app, upload to cloud, generate QR code & download link. |
 | `frx build -s` | Display the current config file path for quick verification. |
 | `frx build -c <path>` | Use a custom config file instead of the default `config.yaml`. |
@@ -30,6 +30,13 @@ For help on any command, run `frx <command> --help`.
 | `frx pipeline validate` | Validate your pipeline config and show detailed, actionable errors. |
 | `frx pipeline run <name>` | Run a specific named pipeline. |
 | `frx pipeline help-all` | Show a complete feature reference for pipeline configuration. |
+| `frx hooks install` | Install all enabled git hooks into `.git/hooks/`. |
+| `frx hooks install --dry-run` | Preview what would be installed without writing any files. |
+| `frx hooks uninstall` | Remove all FRX-managed git hooks. |
+| `frx hooks uninstall --hook <name>` | Remove one specific hook. |
+| `frx hooks list` | Show all configured hooks and their install status. |
+| `frx hooks run <name>` | Manually trigger a hook by name. |
+| `frx hooks validate` | Validate your hooks config. |
 | `frx notify -p slack -m 'msg'` | Send a custom notification to Slack. |
 | `frx notify -p teams -m 'msg'` | Send a custom notification to Microsoft Teams. |
 | `frx check-update` | Manually check if a new version of FRX is available. |
@@ -67,6 +74,31 @@ frx pipeline run my-pipeline
 # Full pipeline feature reference
 frx pipeline help-all
 ```
+
+---
+
+## 🪝 Git Hooks Commands
+
+FRX ships a Husky-like git hooks system. Define hooks in `config.yaml` and install them once:
+
+```bash
+# Install all enabled hooks
+frx hooks install
+
+# Preview without writing files
+frx hooks install --dry-run
+
+# See all hooks and their status
+frx hooks list
+
+# Manually trigger a hook (for testing)
+frx hooks run pre-commit
+
+# Remove all FRX-managed hooks
+frx hooks uninstall
+```
+
+📖 See the [Git Hooks Reference](/docs/git-hooks) and [Hooks Cookbook](/docs/Cookbook/hooks-cookbook) for full examples.
 
 ---
 

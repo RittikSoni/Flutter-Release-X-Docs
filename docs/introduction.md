@@ -44,16 +44,18 @@ className="rounded-lg shadow-xl shadow-teal-500"
   className="shadow-md shadow-red-500 rounded-md"
 ></iframe>
 
-### 🚀 Automated App Distribution & CI/CD
+### 🚀 Ship Flutter Apps Faster — One CLI for Everything
 
-**Flutter Release X (frx)** is a robust CLI tool designed to revolutionize your app deployment process. Whether you're building for **Flutter** or **Non-Flutter** platforms, FRX simplifies your workflow with powerful **Advanced Pipelines** that automate everything from building to cloud distribution.
+**Flutter Release X (frx)** is the all-in-one release automation CLI for Flutter and beyond. From building and uploading your app to git hooks that guard every commit — FRX handles your entire workflow.
 
 ### ✨ Key Features & Benefits
 
 - **⚡ Simplified Deployment:** Replace complex, manual release steps with a single `frx build` command.
-- **🛡️ Advanced Pipelines:** Define and run custom, multi-step CI/CD workflows tailored to your project.
+- **🛡️ Advanced Pipelines:** Define and run custom, multi-step CI/CD workflows — retries, timeouts, conditions, and parallel notifications built in.
+- **🪝 Git Hooks:** Automatically run `flutter analyze`, tests, or any pipeline on `pre-commit`, `pre-push`, and more. Husky-like, fully opt-in.
 - **☁️ Multi-Cloud Scaling:** Seamlessly integrate with **GitHub, Google Drive, AWS S3, GitLab, Google Play Store, and Apple App Store**.
 - **📱 Instant Tester Access:** Automatically generate **QR codes** and **short links** for lightning-fast distribution.
+- **🔔 Team Notifications:** Ping Slack or Microsoft Teams the moment a build is ready.
 - **🔓 Free & Open Source:** A secure, community-driven alternative to expensive enterprise solutions.
 - **🌍 Universal Support:** Full automation for Android, iOS, Web, macOS, Windows, and Linux.
 
